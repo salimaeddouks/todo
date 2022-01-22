@@ -354,12 +354,138 @@ while(!in.atEnd()){
             
             
 ```
+
+<h2>Using MVC Model :</h2>
+
+<p> the objetif in this version is the  same as the version of item based <br/>
+the user here  is able to add new tasks  on the three lists by clicking on the button Today task ,Pending tasks or finished tasks.
+  <p/>
+  <img src="">
+  
 ```
+
+void models::on_pushButton_7_clicked()
+{
+    //add1
+
+    int row =model1->rowCount();
+    model1->insertRows(row,1);
+    QModelIndex index=model1->index(row);
+    ui->listView->setCurrentIndex(index);
+    ui->listView->edit(index);
+
+}
+
+
 ```
+<p> The tasks are displayed also  on the ComboBox<p/>
+<img src="">
+
 ```
+ui->comboBox->setModel(model1);
+
 ```
+  
+ <p>Or he can  enter those values:<br/>A description to stating the text and goal for the task  <br/>The Date <br/>A Tag category to show the class of the task which is reduced to the following values:Work  ,Life and  Other.<br/>Then he click at the batton ok to display the task on the list and  on the ComboBox.
+<p/>
+
+
+<img src="">
+<h3>dialogue1.h</h3>
+
+  
 ```
+
+#ifndef DIALOGUE1_H
+#define DIALOGUE1_H
+
+#endif // DIALOGUE1_H
+#include<QString>
+#include<QtWidgets>
+
+typedef struct S{
+    QString Tag;
+    QString Date;
+    QString Description;
+
+}S;
+class dialogue1 : public QAbstractListModel {
+private:
+    QList<S>s;
+public:
+    dialogue1(QObject *parent={}): QAbstractListModel(parent){
+
+    }
+    ~dialogue1(){
+
+    }
+    int rowCount(const QModelIndex & parent) const{
+        return s.count();
+    }
+    QVariant data(const QModelIndex & index, int role)const{
+        if (role==Qt::DisplayRole){
+            return s[index.row()].Description +"\t"+s[index.row()].Date+"\t"+ s[index.row()].Tag;
+        }
+        return QVariant();
+    }
+
+   void ok(S & e){
+       beginInsertRows({},s.count(),s.count());
+       s.append(e);
+       endInsertRows();
+
+    }
+};
+
+
+
 ```
+
 ```
+
+void models::on_pushButton_13_clicked()
+{
+    S t2;
+    t2.Date=(ui->dateEdit_2->date()).toString();
+    t2.Description=ui->lineEdit_2->text();
+   t2.Tag= ui->comboBox_5->currentText();
+ model6.ok(t2);
+ ui->listView_2->setModel(&model6);
+
+ ui->comboBox_2->setModel(&model6);
+
+
+}
+
+
+```
+
+<p>on this version the user also can delete and  insert the tasks <p/>
+
+
+```
+
+void models::on_pushButton_clicked()
+{
+
+    //delete1
+
+    model1->removeRows(ui->listView->currentIndex().row(),1);
+}
+
+```
+
+```
+
+void models::on_pushButton_5_clicked()
+{
+    //insert1
+    int row =ui->listView->currentIndex().row();
+    model1->insertRows(row,1);
+    QModelIndex index= model1->index(row);
+    ui->listView->setCurrentIndex(index);
+    ui->listView->edit(index);
+}
+
 ```
 ```
