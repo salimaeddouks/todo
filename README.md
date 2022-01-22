@@ -14,11 +14,11 @@
 <p> our  goal  is to create an application to manage our tasks. It  have all the features of main application such as menues, actions and toolbar.</p>
 <h2>Using Item Based Model :</h2>
 
-<img src="">
+<img src="1.PNG">
 <p>.In this application the  user  is  able to close the application 
 by clicking on the exit action
  </p>
- <img src="">
+ <img src="2.PNG">
  
  
 ```
@@ -36,7 +36,7 @@ void tasks::on_actionExit_triggered()
 </p>
 <p> When the user create a new task (new task , pending task or finished task), the application must pop up a dialog for the user to get those values:<br/>A description to stating the text and goal for the task <br/>A finished boolean indicating if the task is Finished or due.<br/>and a  Tag category to show the class of the task which is reduced to the following values:Work  ,Life and  Other.  then the the values will display at the list concerned  <p/>
 
-<img src="">
+<img src="3.PNG">
 <h3>dialog.cpp</h3>
 
 ```
@@ -159,7 +159,7 @@ read(this->filename);
 ```
 
 <p> the  user  is  able also  to delete the tasks  by clicking on the button Delete<p/>
-<img src="">
+<img src="4.PNG">
 
 ```
 
@@ -195,7 +195,7 @@ read(this->filename);
 ```
 
 <p>  if a  user   finished  the task   he can add it  at  the list of finished tasks by clicking on the button isFinished <p/>
-<img src="">
+<img src="5.PNG">
 
 ```
 
@@ -229,7 +229,7 @@ void tasks::on_isFinished_clicked()
 ```
 
 <p>   the user can designe the  new tasks  specifying the Text color ,the backgrount and the Font.<p/>
-<img src="">
+<img src="6.PNG">
 
 ```
 void tasks::on_comboBox_1_activated(const QString &arg1)
