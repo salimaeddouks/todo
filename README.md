@@ -356,11 +356,11 @@ while(!in.atEnd()){
 ```
 
 <h2>Using MVC Model :</h2>
-
+<img src="a.PNG">
 <p> the objetif in this version is the  same as the version of item based <br/>
 the user here  is able to add new tasks  on the three lists by clicking on the button Today task ,Pending tasks or finished tasks.
   <p/>
-  <img src="">
+  <img src="b.PNG">
   
 ```
 
@@ -379,7 +379,7 @@ void models::on_pushButton_7_clicked()
 
 ```
 <p> The tasks are displayed also  on the ComboBox<p/>
-<img src="">
+<img src="c.PNG">
 
 ```
 ui->comboBox->setModel(model1);
@@ -390,7 +390,7 @@ ui->comboBox->setModel(model1);
 <p/>
 
 
-<img src="">
+<img src="d.PNG">
 <h3>dialogue1.h</h3>
 
   
